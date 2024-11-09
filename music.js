@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create the main container
     const container = document.createElement('div');
 
-   /* // Create the YouTube embed container
+    // Create the YouTube embed container
     const youtubeEmbedContainer = document.createElement('div');
     youtubeEmbedContainer.style.position = 'absolute';
     youtubeEmbedContainer.style.top = '60%'; // Adjusted the position up by 15%
@@ -104,12 +104,12 @@ document.addEventListener('DOMContentLoaded', function() {
     title.style.borderRadius = '5px'; // Make the title slightly rounder
     title.style.color = 'white';
     title.style.fontSize = '7.5rem'; // Slightly increased font size
-    title.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';*/
+    title.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
 
     // Append title to container
     container.appendChild(title);
 
-    /*// Create the Spotify embed container
+    // Create the Spotify embed container
     const spotifyEmbedContainer = document.createElement('div');
     spotifyEmbedContainer.style.position = 'absolute';
     spotifyEmbedContainer.style.top = '18%'; // Adjusted the position up by 15%
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     spotifyEmbedContainer.appendChild(spotifyIframe2);
 
     // Append Spotify embed container to the main container
-    container.appendChild(spotifyEmbedContainer);*/
+    container.appendChild(spotifyEmbedContainer);
 
     // Append container to body
     document.body.appendChild(container);
