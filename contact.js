@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     menu.style.left = '50%';
     menu.style.transform = 'translateX(-50%)';
     menu.style.display = 'flex';
-    menu.style.gap = '20px';
+    menu.style.gap = '10px'; // Adjusted for responsiveness
 
     // Create menu items
     const createMenuItem = (text, href) => {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.innerText = text;
         link.style.color = 'white';
         link.style.fontFamily = 'sans-serif';
-        link.style.fontSize = '1.75rem';
+        link.style.fontSize = '1.5rem'; // Adjusted for responsiveness
         link.style.textDecoration = 'none';
         link.style.fontWeight = '300';
         link.style.letterSpacing = '0.07em';
@@ -44,17 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return link;
     };
 
+    const homeLink = createMenuItem('Home', 'yazzy.html')
     const musicLink = createMenuItem('Music', 'music.html');
+    const calLink = createMenuItem('Calendar','calendar.html')
     const contactLink = createMenuItem('Contact', 'contact.html');
 
     // Append menu items to menu
+    menu.appendChild(homeLink)
     menu.appendChild(musicLink);
+    menu.appendChild(calLink)
     menu.appendChild(contactLink);
-    
 
     // Append menu to container
     container.appendChild(menu);
-    
+
     // Create the email form
     const form = document.createElement('form');
     form.style.display = 'flex';
@@ -62,20 +65,22 @@ document.addEventListener('DOMContentLoaded', function() {
     form.style.alignItems = 'center';
     form.style.marginTop = '20px';
     form.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-    form.style.padding = '20px';
+    form.style.padding = '10px'; // Adjusted for responsiveness
     form.style.borderRadius = '10px';
     form.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    form.style.width = '90%'; // Responsive width
+    form.style.maxWidth = '400px'; // Limit max width
 
     // Create the email input field
     const emailInput = document.createElement('input');
     emailInput.type = 'email';
     emailInput.placeholder = 'Your email';
     emailInput.required = true;
-    emailInput.style.marginBottom = '0px';
+    emailInput.style.marginBottom = '10px';
     emailInput.style.padding = '10px';
     emailInput.style.border = '1px solid #ccc';
     emailInput.style.borderRadius = '5px';
-    emailInput.style.width = '300px';
+    emailInput.style.width = '100%'; // Responsive width
 
     // Create the message textarea
     const messageTextarea = document.createElement('textarea');
@@ -85,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     messageTextarea.style.padding = '10px';
     messageTextarea.style.border = '1px solid #ccc';
     messageTextarea.style.borderRadius = '5px';
-    messageTextarea.style.width = '300px';
+    messageTextarea.style.width = '100%'; // Responsive width
     messageTextarea.style.height = '100px';
 
     // Create the submit button
@@ -114,30 +119,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const message = messageTextarea.value;
         window.location.href = `mailto:yazzysimons@example.com?subject=Contact&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
     });
+
     // Create a function to create social media buttons
     const createSocialButton = (src, alt, url) => {
         const button = document.createElement('button');
         button.style.border = 'none';
         button.style.background = 'none';
         button.style.cursor = 'pointer';
-        button.style.marginTop = '30px';
+        button.style.marginTop = '20px';
 
         const logo = document.createElement('img');
         logo.src = src; // Make sure this path is correct
         logo.alt = alt;
-        if (alt === 'Spotify') {
-            logo.style.width = '180px'; // Larger width for Spotify logo
-            logo.style.height = '130px'; // Larger height for Spotify logo
-        } else if (alt === 'Instagram') {
-            logo.style.width = '120px'; // Slightly smaller width for Instagram logo
-            logo.style.height = '85px'; // Slightly smaller height for Instagram logo
-        } else if (alt === 'LinkedIn') {
-            logo.style.width = '160px'; // Slightly larger width for LinkedIn logo
-            logo.style.height = '115px'; // Slightly larger height for LinkedIn logo
-        } else {//facebook
-            logo.style.width = '145px';
-            logo.style.height = '100px';
-        }
+        logo.style.width = '80px'; // Responsive size
+        logo.style.height = 'auto';
 
         button.appendChild(logo);
 
@@ -157,8 +152,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create a container for social media buttons
     const socialContainer = document.createElement('div');
     socialContainer.style.display = 'flex';
-    socialContainer.style.gap = '20px';
+    socialContainer.style.flexWrap = 'wrap'; // Allow wrapping for responsiveness
+    socialContainer.style.gap = '10px'; // Adjusted for responsiveness
     socialContainer.style.marginTop = '20px';
+    socialContainer.style.justifyContent = 'center';
 
     // Append buttons to social container
     socialContainer.appendChild(instagramButton);

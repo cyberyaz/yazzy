@@ -44,11 +44,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return link;
     };
 
+    const homeLink = createMenuItem('Home', 'yazzy.html')
     const musicLink = createMenuItem('Music', 'music.html');
+    const calLink = createMenuItem('Calendar','calendar.html')
     const contactLink = createMenuItem('Contact', 'contact.html');
 
     // Append menu items to menu
+    menu.appendChild(homeLink)
     menu.appendChild(musicLink);
+    menu.appendChild(calLink)
     menu.appendChild(contactLink);
 
     // Append menu to container
@@ -64,10 +68,24 @@ document.addEventListener('DOMContentLoaded', function() {
     title.style.color = 'white';
     title.style.fontSize = '7.5rem'; // Slightly increased font size
     title.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
-
+    
     // Append title to container
     container.appendChild(title);
-
+        
+   
+    container.appendChild(title);
+    const paragraph = document.createElement('p');
+    paragraph.innerText = 'Yazzy Simons is a vocalist and lyricist from the San Francisco Bay Area, now based in Denver. They focus on Brazilian jazz, drawing inspiration from bossa nova, samba, and MPB.\nYazzy is currently studying vocal jazz at the University of Denver under the guidance of Marion Powers, and performs around town with their Brazilian jazz duo, alongside guitarist Kylan Fermin. The two share a love for the music of Jobim, João Gilberto, and Elis Regina, and bring their own take to both familiar songs and lesser-known gems. Their approach is thoughtful and grounded, with a focus on connection, groove, and honoring the spirit of the music.';
+    paragraph.style.fontFamily = 'sans-serif';
+    paragraph.style.fontWeight = '300'; // Make the font thinner
+    paragraph.style.color = 'white';
+    paragraph.style.fontSize = '1.5rem';
+    paragraph.style.textAlign = 'center';
+    paragraph.style.marginTop = '30px';
+    paragraph.style.textShadow = '1px 1px 8px rgba(0, 0, 0, 0.5)';
+    paragraph.style.maxWidth = '600px'; // Limit the width of the paragraph
+    paragraph.style.padding = '0 20px'; // Add padding to the sides for better spacing
+    container.appendChild(paragraph);
     // Append container to body
     document.body.appendChild(container);
 });

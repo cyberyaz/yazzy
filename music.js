@@ -10,11 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create the main container
     const container = document.createElement('div');
 
+    // Set the background image for the entire page
+    document.body.style.backgroundImage = 'url("musicbackground.jpg")';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.height = '100vh';
+    document.body.style.width = '100vw';
+
     // Create the YouTube embed container
     const youtubeEmbedContainer = document.createElement('div');
     youtubeEmbedContainer.style.position = 'absolute';
-    youtubeEmbedContainer.style.top = '60%'; // Adjusted the position up by 15%
-    youtubeEmbedContainer.style.width = '10%'; // Make the container smaller
+    youtubeEmbedContainer.style.top = '60%';
+    youtubeEmbedContainer.style.width = '90%'; // Use percentage for responsiveness
+    youtubeEmbedContainer.style.maxWidth = '600px'; // Set a max width
     youtubeEmbedContainer.style.display = 'flex';
     youtubeEmbedContainer.style.flexDirection = 'column';
     youtubeEmbedContainer.style.alignItems = 'center';
@@ -22,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create the YouTube iframe
     const youtubeIframe = document.createElement('iframe');
-    youtubeIframe.width = '370'; // Adjust the width as needed
-    youtubeIframe.height = '250.5'; // Adjust the height as needed
+    youtubeIframe.style.width = '100%'; // Use 100% width for responsiveness
+    youtubeIframe.style.aspectRatio = '16 / 9'; // Maintain aspect ratio
     youtubeIframe.src = 'https://www.youtube.com/embed/w0V8KK_Finw?si=826FKh3aHdBqQX8R';
     youtubeIframe.title = 'YouTube video player';
     youtubeIframe.frameBorder = '0';
@@ -36,15 +45,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create the second YouTube iframe
     const youtubeIframe2 = document.createElement('iframe');
-    youtubeIframe2.width = '370'; // Adjust the width to match the first iframe
-    youtubeIframe2.height = '250.5'; // Adjust the height to match the first iframe
+    youtubeIframe2.style.width = '100%'; // Use 100% width for responsiveness
+    youtubeIframe2.style.aspectRatio = '16 / 9'; // Maintain aspect ratio
     youtubeIframe2.src = 'https://www.youtube.com/embed/gIZahSo4Vik?si=WRiOpCpBBzxQ4m9h';
     youtubeIframe2.title = 'YouTube video player';
     youtubeIframe2.frameBorder = '0';
     youtubeIframe2.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     youtubeIframe2.referrerPolicy = 'strict-origin-when-cross-origin';
     youtubeIframe2.allowFullscreen = true;
-    youtubeIframe2.style.marginBottom = '20px'; // Add margin below the second iframe
 
     // Append the second YouTube iframe to its container
     youtubeEmbedContainer.appendChild(youtubeIframe2);
@@ -52,15 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Append YouTube embed container to the main container
     container.appendChild(youtubeEmbedContainer);
     container.style.width = '100vw';
-    container.style.height = '150vh';
+    container.style.minHeight = '100vh';
     container.style.display = 'flex';
     container.style.flexDirection = 'column';
     container.style.alignItems = 'center';
     container.style.justifyContent = 'center';
     container.style.backgroundImage = 'url("musicbackground.jpg")';
-    container.style.backgroundSize = 'cover'; // Change to cover to allow the image to be larger than the screen
+    container.style.backgroundSize = 'cover';
     container.style.backgroundRepeat = 'no-repeat';
-    container.style.backgroundPosition = 'center'; // Center the image
+    container.style.backgroundPosition = 'center';
 
     // Create the menu
     const menu = document.createElement('div');
@@ -78,19 +86,23 @@ document.addEventListener('DOMContentLoaded', function() {
         link.innerText = text;
         link.style.color = 'white';
         link.style.fontFamily = 'sans-serif';
-        link.style.fontSize = '1.75rem'; // Slightly increased font size
+        link.style.fontSize = '1.5rem';
         link.style.textDecoration = 'none';
-        link.style.fontWeight = '300'; // Make the font thinner
-        link.style.letterSpacing = '0.07em'; // Add some letter spacing for a modern look
+        link.style.fontWeight = '300';
+        link.style.letterSpacing = '0.07em';
         link.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
         return link;
     };
 
+    const homeLink = createMenuItem('Home', 'yazzy.html')
     const musicLink = createMenuItem('Music', 'music.html');
+    const calLink = createMenuItem('Calendar','calendar.html')
     const contactLink = createMenuItem('Contact', 'contact.html');
 
     // Append menu items to menu
+    menu.appendChild(homeLink)
     menu.appendChild(musicLink);
+    menu.appendChild(calLink)
     menu.appendChild(contactLink);
 
     // Append menu to container
@@ -99,11 +111,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create the title
     const title = document.createElement('h1');
     title.style.fontFamily = 'sans-serif';
-    title.style.fontWeight = '300'; // Make the font thinner
-    title.style.letterSpacing = '0.07em'; // Add some letter spacing for a modern look
-    title.style.borderRadius = '5px'; // Make the title slightly rounder
+    title.style.fontWeight = '300';
+    title.style.letterSpacing = '0.07em';
+    title.style.borderRadius = '5px';
     title.style.color = 'white';
-    title.style.fontSize = '7.5rem'; // Slightly increased font size
+    title.style.fontSize = '5rem'; // Adjust font size
     title.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
 
     // Append title to container
