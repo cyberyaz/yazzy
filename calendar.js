@@ -1,105 +1,154 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Set body and html margin and padding to 0
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.documentElement.style.margin = '0';
-    document.documentElement.style.padding = '0';
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
+document.addEventListener('DOMContentLoaded', function () {
+    // Utility function to set styles
+    const setStyles = (element, styles) => {
+        Object.assign(element.style, styles);
+    };
+
+    // Set global styles for body and html
+    const setGlobalStyles = () => {
+        setStyles(document.body, {
+            margin: '0',
+            padding: '0',
+            overflow: 'auto',
+        });
+        setStyles(document.documentElement, {
+            margin: '0',
+            padding: '0',
+            overflow: 'auto',
+        });
+    };
 
     // Create the main container
-    const container = document.createElement('div');
-    container.style.width = '100vw';
-    container.style.height = '100vh';
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.alignItems = 'center';
-    container.style.justifyContent = 'center';
-    container.style.backgroundImage = 'url("calbackground.jpg")';
-    container.style.backgroundSize = 'cover'; // Change to cover to allow the image to be larger than the screen
-    container.style.backgroundRepeat = 'no-repeat';
-    container.style.backgroundPosition = 'center'; // Center the image
+    const createMainContainer = () => {
+        const container = document.createElement('div');
+        setStyles(container, {
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundImage: 'url("calbackground.jpg")',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+        });
+        return container;
+    };
 
-    // Create the menu
-    const menu = document.createElement('div');
-    menu.style.position = 'absolute';
-    menu.style.top = '20px';
-    menu.style.left = '50%';
-    menu.style.transform = 'translateX(-50%)';
-    menu.style.display = 'flex';
-    menu.style.gap = '20px';
-
-    // Create menu items
+    // Create a menu item
     const createMenuItem = (text, href) => {
         const link = document.createElement('a');
         link.href = href;
         link.innerText = text;
-        link.style.color = 'white';
-        link.style.fontFamily = 'sans-serif';
-        link.style.fontSize = '1.75rem'; // Slightly increased font size
-        link.style.textDecoration = 'none';
-        link.style.fontWeight = '300'; // Make the font thinner
-        link.style.letterSpacing = '0.07em'; // Add some letter spacing for a modern look
-        link.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
+        setStyles(link, {
+            color: 'white',
+            fontFamily: 'sans-serif',
+            fontSize: '1.75rem',
+            textDecoration: 'none',
+            fontWeight: '300',
+            letterSpacing: '0.07em',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+        });
         return link;
     };
 
-    const homeLink = createMenuItem('Home', 'yazzy.html')
-    const musicLink = createMenuItem('Music', 'music.html');
-    const calLink = createMenuItem('Calendar','calendar.html')
-    const contactLink = createMenuItem('Contact', 'contact.html');
+    // Create the menu
+    const createMenu = () => {
+        const menu = document.createElement('div');
+        setStyles(menu, {
+            position: 'absolute',
+            top: '20px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            gap: '20px',
+        });
 
-    // Append menu items to menu
-    menu.appendChild(homeLink)
-    menu.appendChild(musicLink);
-    menu.appendChild(calLink)
-    menu.appendChild(contactLink);
+        const menuItems = [
+            { text: 'Home', href: 'yazzy.html' },
+            { text: 'Music', href: 'music.html' },
+            { text: 'Shows', href: 'calendar.html' },
+            { text: 'Contact', href: 'contact.html' },
+        ];
 
-    // Append menu to container
-    container.appendChild(menu);
-    // Create the "Upcoming Shows" section
-    const showsSection = document.createElement('div');
-    showsSection.style.marginTop = '100px';
-    showsSection.style.textAlign = 'center';
-    showsSection.style.color = 'white';
-    showsSection.style.fontFamily = 'sans-serif';
+        menuItems.forEach(item => {
+            menu.appendChild(createMenuItem(item.text, item.href));
+        });
 
-    // Create the title
-    const showsTitle = document.createElement('h2');
-    showsTitle.innerText = 'Upcoming Shows';
-    showsTitle.style.textDecoration = 'underline';
-    showsTitle.style.fontSize = '2rem';
-    showsTitle.style.marginBottom = '20px';
-    showsSection.appendChild(showsTitle);
+        return menu;
+    };
 
-    // Create the list of shows
-    const showsList = document.createElement('ul');
-    showsList.style.listStyleType = 'none';
-    showsList.style.padding = '0';
-
-    // Function to create a show item
+    // Create a show item
     const createShowItem = (title, date, time, location) => {
         const listItem = document.createElement('li');
-        listItem.style.marginBottom = '15px';
-        listItem.style.fontSize = '1.25rem';
-        listItem.style.textShadow = '1px 1px 3px rgba(0, 0, 0, 0.5)';
+        setStyles(listItem, {
+            marginBottom: '17px',
+            fontSize: '1.4rem',
+            textShadow: '1px 1px 1px rgba(0, 0, 0, 0.5)',
+            color: 'white',
+            fontFamily: 'sans-serif',
+            fontWeight: '300',
+            letterSpacing: '0.07em',
+        });
 
-        const showText = `${title} - ${date} at ${time}, ${location}`;
-        listItem.innerText = showText;
-
+        listItem.innerText = `${title} | ${date}, ${time} at ${location}`;
         return listItem;
     };
 
-    // Add show items
-    showsList.appendChild(createShowItem('Bossa Duo', 'May 6, 2025', '7:00 PM', 'Denver'));
-    showsList.appendChild(createShowItem('Lamont Jazz Small Group', 'May 14, 2025', '5:00 PM', 'Lamont School of Music, William Recital Salon'));
-    showsList.appendChild(createShowItem('Lamont Jazz Vocal Groups', 'May 27, 2025', '6:30 PM', 'Lamont School of Music, William Recital Salon'));
+    // Create the "Upcoming Shows" section
+    const createShowsSection = () => {
+        const showsSection = document.createElement('div');
+        setStyles(showsSection, {
+            marginTop: '100px',
+            textAlign: 'center',
+            color: 'white',
+            fontFamily: 'sans-serif',
+        });
 
-    // Append the list to the section
-    showsSection.appendChild(showsList);
+        const showsTitle = document.createElement('h2');
+        showsTitle.innerText = 'Upcoming Shows';
+        setStyles(showsTitle, {
+            textDecoration: 'underline',
+            fontSize: '2rem',
+            marginBottom: '20px',
+            fontFamily: 'sans-serif',
+            fontWeight: '300',
+            letterSpacing: '0.07em',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+        });
 
-    // Append the "Upcoming Shows" section to the container
-    container.appendChild(showsSection);
+        const showsList = document.createElement('ul');
+        setStyles(showsList, {
+            listStyleType: 'none',
+            padding: '0',
+        });
+
+        const shows = [
+            { title: 'Yazzy Duo', date: 'May 6, 2025', time: '7:00 PM', location: 'Salita Cocktail Bar' },
+            { title: 'Yazzy Duo', date: 'May 10, 2025', time: '11:00 AM', location: 'TBA' },
+            { title: 'Lamont Jazz Small Group', date: 'May 14, 2025', time: '5:00 PM', location: 'the Lamont School of Music, William Recital Salon' },
+            { title: 'Lamont Jazz Vocal Groups', date: 'May 27, 2025', time: '6:30 PM', location: 'the Lamont School of Music, William Recital Salon' },
+            { title: 'Yazzy Duo', date: 'May 30, 2025', time: '7:00 PM', location: 'TBA' },
+            { title: 'Yazzy Duo', date: 'May 31, 2025', time: '6:00 PM', location: 'Little Brazil Restaurant' },
+        ];
+
+        shows.forEach(show => {
+            showsList.appendChild(createShowItem(show.title, show.date, show.time, show.location));
+        });
+
+        showsSection.appendChild(showsTitle);
+        showsSection.appendChild(showsList);
+
+        return showsSection;
+    };
+
+    // Main execution
+    setGlobalStyles();
+
+    const container = createMainContainer();
+    container.appendChild(createMenu());
+    container.appendChild(createShowsSection());
 
     document.body.appendChild(container);
 });

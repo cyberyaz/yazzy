@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     container.style.flexDirection = 'column';
     container.style.alignItems = 'center';
     container.style.justifyContent = 'center';
-    container.style.backgroundImage = 'url("contactbackground.jpg")';
+    container.style.backgroundImage = 'url("contactbackground.JPG")';
     container.style.backgroundSize = 'cover';
     container.style.backgroundRepeat = 'no-repeat';
     container.style.backgroundPosition = 'center';
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const homeLink = createMenuItem('Home', 'yazzy.html')
     const musicLink = createMenuItem('Music', 'music.html');
-    const calLink = createMenuItem('Calendar','calendar.html')
+    const calLink = createMenuItem('Shows','calendar.html')
     const contactLink = createMenuItem('Contact', 'contact.html');
 
     // Append menu items to menu
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         const email = emailInput.value;
         const message = messageTextarea.value;
-        window.location.href = `mailto:yazzysimons@example.com?subject=Contact&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
+        window.location.href = `mailto:yazzysmusic@gmail.com?subject=Yazzy%20Website%20Contact%20Message&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
     });
 
     // Create a function to create social media buttons
@@ -145,9 +145,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create social media buttons
     const instagramButton = createSocialButton('IGlogo.png', 'Instagram', 'https://www.instagram.com/yazzysimons');
-    const facebookButton = createSocialButton('Facebooklogo.png', 'Facebook', 'https://www.facebook.com/yasmin.simons.58/');
-    const spotifyButton = createSocialButton('Spotifylogo.png', 'Spotify', 'https://open.spotify.com/artist/7gnxVCyVrZrWA6AIQxf3Kq?si=7GZJAKluTB6sCy4mEQqqWg');
-    const linkedinButton = createSocialButton('LinkedInlogo.png', 'LinkedIn', 'https://www.linkedin.com/in/yazzysimons/');
+    const facebookButton = createSocialButton('facebookLogo.png', 'Facebook', 'https://www.facebook.com/yasmin.simons.58/');
+    const spotifyButton = createSocialButton('spotifylogo.png', 'Spotify', 'https://open.spotify.com/artist/7gnxVCyVrZrWA6AIQxf3Kq?si=7GZJAKluTB6sCy4mEQqqWg');
+    const linkedinButton = createSocialButton('linkedinlogo.png', 'LinkedIn', 'https://www.linkedin.com/in/yazzysimons/');
 
     // Create a container for social media buttons
     const socialContainer = document.createElement('div');

@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const homeLink = createMenuItem('Home', 'yazzy.html')
     const musicLink = createMenuItem('Music', 'music.html');
-    const calLink = createMenuItem('Calendar','calendar.html')
+    const calLink = createMenuItem('Shows','calendar.html')
     const contactLink = createMenuItem('Contact', 'contact.html');
 
     // Append menu items to menu
