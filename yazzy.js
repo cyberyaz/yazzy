@@ -1,124 +1,161 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Set body and html margin and padding to 0
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.documentElement.style.margin = '0';
-    document.documentElement.style.padding = '0';
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
-
-    // Create the main container
-    const container = document.createElement('div');
-    container.style.width = '100vw';
-    container.style.height = '100vh';
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.alignItems = 'center';
-    container.style.justifyContent = 'center';
-    container.style.backgroundImage = 'url("yazzybackground.jpg")';
-    container.style.backgroundSize = 'cover';
-    container.style.backgroundRepeat = 'no-repeat';
-    container.style.backgroundPosition = 'center';
-
-    // Create the menu
-    const menu = document.createElement('div');
-    menu.style.position = 'absolute';
-    menu.style.top = '20px';
-    menu.style.left = '50%';
-    menu.style.transform = 'translateX(-50%)';
-    menu.style.display = 'flex';
-    menu.style.gap = '20px';
-
-    // Create menu items
-    const createMenuItem = (text, href) => {
-        const link = document.createElement('a');
-        link.href = href;
-        link.innerText = text;
-        link.style.color = 'white';
-        link.style.fontFamily = 'sans-serif';
-        link.style.fontSize = '1.75rem';
-        link.style.textDecoration = 'none';
-        link.style.fontWeight = '300';
-        link.style.letterSpacing = '0.07em';
-        link.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
-        return link;
+document.addEventListener('DOMContentLoaded', function () {
+    // Utility function to create and style elements
+    const createElement = (tag, styles = {}, attributes = {}, textContent = '') => {
+        const element = document.createElement(tag);
+        Object.assign(element.style, styles);
+        Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+        if (textContent) element.textContent = textContent;
+        return element;
     };
 
-    const homeLink = createMenuItem('Home', 'yazzy.html');
-    const musicLink = createMenuItem('Music', 'music.html');
-    const calLink = createMenuItem('Shows', 'calendar.html');
-    const contactLink = createMenuItem('Contact', 'contact.html');
+    // Set global styles
+    const setGlobalStyles = () => {
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.documentElement.style.margin = '0';
+        document.documentElement.style.padding = '0';
+        document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
+    };
 
-    // Append menu items to menu
-    menu.appendChild(homeLink);
-    menu.appendChild(musicLink);
-    menu.appendChild(calLink);
-    menu.appendChild(contactLink);
+    // Create the main container
+    const createMainContainer = () => {
+        return createElement('div', {
+            width: '100vw',
+            height: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundImage: 'url("yazzybackground.jpg")',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+        });
+    };
 
-    // Append menu to container
-    container.appendChild(menu);
+    // Create the menu
+    const createMenu = () => {
+        const menu = createElement('div', {
+            position: 'absolute',
+            top: '20px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            gap: '20px',
+        });
+
+        const menuItems = [
+            { text: 'Home', href: 'yazzy.html' },
+            { text: 'Music', href: 'music.html' },
+            { text: 'Shows', href: 'calendar.html' },
+            { text: 'Contact', href: 'contact.html' },
+        ];
+
+        menuItems.forEach(({ text, href }) => {
+            const link = createElement(
+                'a',
+                {
+                    color: 'white',
+                    fontFamily: 'sans-serif',
+                    fontSize: '1.75rem',
+                    textDecoration: 'none',
+                    fontWeight: '300',
+                    letterSpacing: '0.07em',
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                },
+                { href },
+                text
+            );
+            menu.appendChild(link);
+        });
+
+        return menu;
+    };
 
     // Create the title
-    const title = document.createElement('h1');
-    title.innerText = 'Yazzy';
-    title.style.fontFamily = 'sans-serif';
-    title.style.fontWeight = '300';
-    title.style.letterSpacing = '0.07em';
-    title.style.borderRadius = '5px';
-    title.style.color = 'white';
-    title.style.fontSize = '7.5rem';
-    title.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
-    title.style.textAlign = 'center';
-
-    // Append title to container
-    container.appendChild(title);
+    const createTitle = () => {
+        return createElement(
+            'h1',
+            {
+                fontFamily: 'sans-serif',
+                fontWeight: '300',
+                letterSpacing: '0.07em',
+                borderRadius: '5px',
+                color: 'white',
+                fontSize: '7.5rem',
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+                textAlign: 'center',
+            },
+            {},
+            'Yazzy'
+        );
+    };
 
     // Create the paragraph
-    const paragraph = document.createElement('p');
-    paragraph.innerText = 'Yazzy Simons is a vocalist and lyricist from the San Francisco Bay Area, now based in Denver. They focus on Brazilian jazz, drawing inspiration from bossa nova, samba, and MPB.\nYazzy is currently studying vocal jazz at the University of Denver under the guidance of Marion Powers, and performs around town with their Brazilian jazz duo, alongside guitarist Kylan Fermin.';
-    paragraph.style.fontFamily = 'sans-serif';
-    paragraph.style.fontWeight = '300';
-    paragraph.style.color = 'white';
-    paragraph.style.fontSize = '1.5rem';
-    paragraph.style.textAlign = 'center';
-    paragraph.style.marginTop = '30px';
-    paragraph.style.textShadow = '1px 1px 8px rgba(0, 0, 0, 0.5)';
-    paragraph.style.maxWidth = '600px';
-    paragraph.style.padding = '0 20px';
-    container.appendChild(paragraph);
-
-    // Append container to body
-    document.body.appendChild(container);
+    const createParagraph = () => {
+        return createElement(
+            'p',
+            {
+                fontFamily: 'sans-serif',
+                fontWeight: '300',
+                color: 'white',
+                fontSize: '1.5rem',
+                textAlign: 'center',
+                marginTop: '30px',
+                textShadow: '1px 1px 8px rgba(0, 0, 0, 0.5)',
+                maxWidth: '600px',
+                padding: '0 20px',
+            },
+            {},
+            'Yazzy Simons is a vocalist and lyricist from the San Francisco Bay Area, now based in Denver. They focus on Brazilian jazz, drawing inspiration from bossa nova, samba, and MPB.\nYazzy is currently studying vocal jazz at the University of Denver under the guidance of Marion Powers, and performs around town with their Brazilian jazz duo, alongside guitarist Kylan Fermin.'
+        );
+    };
 
     // Add responsive styles
-    const style = document.createElement('style');
-    style.innerHTML = `
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 5rem;
+    const addResponsiveStyles = () => {
+        const style = createElement('style');
+        style.innerHTML = `
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 5rem;
+                }
+                p {
+                    font-size: 1.2rem;
+                }
+                a {
+                    font-size: 1.5rem;
+                }
             }
-            p {
-                font-size: 1.2rem;
+            @media (max-width: 480px) {
+                h1 {
+                    font-size: 3.5rem;
+                }
+                p {
+                    font-size: 1rem;
+                }
+                a {
+                    font-size: 1.2rem;
+                }
+                div[style*="gap: 20px"] {
+                    flex-direction: column;
+                    gap: 10px;
+                }
             }
-            a {
-                font-size: 1.5rem;
-            }
-        }
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 3.5rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-            a {
-                font-size: 1.2rem;
-            }
-            div[style*="gap: 20px"] {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+        `;
+        document.head.appendChild(style);
+    };
+
+    // Initialize the page
+    const initializePage = () => {
+        setGlobalStyles();
+        const container = createMainContainer();
+        container.appendChild(createMenu());
+        container.appendChild(createTitle());
+        container.appendChild(createParagraph());
+        document.body.appendChild(container);
+        addResponsiveStyles();
+    };
+
+    initializePage();
 });
