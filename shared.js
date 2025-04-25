@@ -24,7 +24,7 @@ export function createMenu() {
     });
 
     const menuItems = [
-        { text: 'Home', href: 'yazzy.html' },
+        { text: 'Home', href: 'index.html' },
         { text: 'Music', href: 'music.html' },
         { text: 'Shows', href: 'calendar.html' },
         { text: 'Contact', href: 'contact.html' },
