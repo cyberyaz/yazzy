@@ -59,14 +59,11 @@ export function applyGlobalStyles() {
         a {
           font-size: 1rem;
         }
-        div[style*="gap: 20px"] {
-          flex-direction: column;
-          gap: 10px;
-        }
       }
     `;
     document.head.appendChild(style);
   }
+  
   
   export function applyMenuSpacing(target = document.body) {
     const spacer = document.createElement('div');
