@@ -1,171 +1,157 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Set body and html margin and padding to 0
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.documentElement.style.margin = '0';
-    document.documentElement.style.padding = '0';
-    document.body.style.overflow = 'auto';
-    document.documentElement.style.overflow = 'auto';
+import { applyGlobalStyles, createMenu, injectResponsiveStyles } from './shared.js';
 
-    // Create the main container
+document.addEventListener('DOMContentLoaded', function () {
+    applyGlobalStyles();
+    injectResponsiveStyles();
+
     const container = document.createElement('div');
-    container.style.width = '100vw';
-    container.style.height = '100vh';
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.alignItems = 'center';
-    container.style.justifyContent = 'center';
-    container.style.backgroundImage = 'url("contactbackground.JPG")';
-    container.style.backgroundSize = 'cover';
-    container.style.backgroundRepeat = 'no-repeat';
-    container.style.backgroundPosition = 'center';
+    Object.assign(container.style, {
+        width: '100vw',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundImage: 'url("contactbackground.JPG")',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        paddingTop: '100px',
+        boxSizing: 'border-box',
+    });
 
-    // Create the menu
-    const menu = document.createElement('div');
-    menu.style.position = 'absolute';
-    menu.style.top = '20px';
-    menu.style.left = '50%';
-    menu.style.transform = 'translateX(-50%)';
-    menu.style.display = 'flex';
-    menu.style.gap = '10px'; // Adjusted for responsiveness
+    container.appendChild(createMenu());
 
-    // Create menu items
-    const createMenuItem = (text, href) => {
-        const link = document.createElement('a');
-        link.href = href;
-        link.innerText = text;
-        link.style.color = 'white';
-        link.style.fontFamily = 'sans-serif';
-        link.style.fontSize = '1.5rem'; // Adjusted for responsiveness
-        link.style.textDecoration = 'none';
-        link.style.fontWeight = '300';
-        link.style.letterSpacing = '0.07em';
-        link.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
-        return link;
-    };
-
-    const homeLink = createMenuItem('Home', 'yazzy.html')
-    const musicLink = createMenuItem('Music', 'music.html');
-    const calLink = createMenuItem('Shows','calendar.html')
-    const contactLink = createMenuItem('Contact', 'contact.html');
-
-    // Append menu items to menu
-    menu.appendChild(homeLink)
-    menu.appendChild(musicLink);
-    menu.appendChild(calLink)
-    menu.appendChild(contactLink);
-
-    // Append menu to container
-    container.appendChild(menu);
-
-    // Create the email form
+    // FORM
     const form = document.createElement('form');
-    form.style.display = 'flex';
-    form.style.flexDirection = 'column';
-    form.style.alignItems = 'center';
-    form.style.marginTop = '20px';
-    form.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-    form.style.padding = '10px'; // Adjusted for responsiveness
-    form.style.borderRadius = '10px';
-    form.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-    form.style.width = '90%'; // Responsive width
-    form.style.maxWidth = '400px'; // Limit max width
+    Object.assign(form.style, {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        padding: '20px',
+        borderRadius: '12px',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+        width: '90%',
+        maxWidth: '400px',
+        marginTop: '30px',
+    });
 
-    // Create the email input field
     const emailInput = document.createElement('input');
-    emailInput.type = 'email';
-    emailInput.placeholder = 'Your email';
-    emailInput.required = true;
-    emailInput.style.marginBottom = '10px';
-    emailInput.style.padding = '10px';
-    emailInput.style.border = '1px solid #ccc';
-    emailInput.style.borderRadius = '5px';
-    emailInput.style.width = '100%'; // Responsive width
+    Object.assign(emailInput, {
+        type: 'email',
+        placeholder: 'Your email',
+        required: true,
+    });
+    Object.assign(emailInput.style, {
+        width: '100%',
+        marginBottom: '12px',
+        padding: '10px',
+        border: '1px solid #ccc',
+        borderRadius: '6px',
+        fontSize: '1rem',
+    });
 
-    // Create the message textarea
     const messageTextarea = document.createElement('textarea');
-    messageTextarea.placeholder = 'Your message';
-    messageTextarea.required = true;
-    messageTextarea.style.marginBottom = '10px';
-    messageTextarea.style.padding = '10px';
-    messageTextarea.style.border = '1px solid #ccc';
-    messageTextarea.style.borderRadius = '5px';
-    messageTextarea.style.width = '100%'; // Responsive width
-    messageTextarea.style.height = '100px';
+    Object.assign(messageTextarea, {
+        placeholder: 'Your message',
+        required: true,
+    });
+    Object.assign(messageTextarea.style, {
+        width: '100%',
+        height: '100px',
+        marginBottom: '12px',
+        padding: '10px',
+        border: '1px solid #ccc',
+        borderRadius: '6px',
+        fontSize: '1rem',
+    });
 
-    // Create the submit button
     const submitButton = document.createElement('button');
     submitButton.type = 'submit';
-    submitButton.innerText = 'Send';
-    submitButton.style.padding = '10px 20px';
-    submitButton.style.border = 'none';
-    submitButton.style.borderRadius = '5px';
-    submitButton.style.backgroundColor = '#007BFF';
-    submitButton.style.color = 'white';
-    submitButton.style.cursor = 'pointer';
+    submitButton.textContent = 'Send';
+    Object.assign(submitButton.style, {
+        padding: '10px 20px',
+        border: 'none',
+        borderRadius: '6px',
+        backgroundColor: '#007BFF',
+        color: 'white',
+        fontSize: '1rem',
+        cursor: 'pointer',
+    });
 
-    // Append input fields and button to form
-    form.appendChild(emailInput);
-    form.appendChild(messageTextarea);
-    form.appendChild(submitButton);
-
-    // Append form to container
+    form.append(emailInput, messageTextarea, submitButton);
     container.appendChild(form);
 
-    // Add form submit event listener
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
         event.preventDefault();
         const email = emailInput.value;
         const message = messageTextarea.value;
         window.location.href = `mailto:yazzysmusic@gmail.com?subject=Yazzy%20Website%20Contact%20Message&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(email)}`;
     });
 
-    // Create a function to create social media buttons
-    const createSocialButton = (src, alt, url) => {
+    // SOCIALS
+    const socials = [
+        { src: 'IGlogo.png', alt: 'Instagram', url: 'https://www.instagram.com/yazzysimons' },
+        { src: 'facebookLogo.png', alt: 'Facebook', url: 'https://www.facebook.com/yasmin.simons.58/' },
+        { src: 'spotifyLogo.png', alt: 'Spotify', url: 'https://open.spotify.com/artist/7gnxVCyVrZrWA6AIQxf3Kq?si=7GZJAKluTB6sCy4mEQqqWg' },
+        { src: 'linkedinLogo.png', alt: 'LinkedIn', url: 'https://www.linkedin.com/in/yazzysimons/' },
+    ];
+
+    const socialContainer = document.createElement('div');
+    Object.assign(socialContainer.style, {
+        display: 'flex',
+        gap: '20px',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        marginTop: '30px',
+    });
+
+    socials.forEach(({ src, alt, url }) => {
         const button = document.createElement('button');
-        button.style.border = 'none';
-        button.style.background = 'none';
-        button.style.cursor = 'pointer';
-        button.style.marginTop = '20px';
-
-        const logo = document.createElement('img');
-        logo.src = src; // Make sure this path is correct
-        logo.alt = alt;
-        logo.style.width = '80px'; // Responsive size
-        logo.style.height = 'auto';
-
-        button.appendChild(logo);
-
-        button.addEventListener('click', function() {
-            window.location.href = url;
+        Object.assign(button.style, {
+            border: 'none',
+            background: 'none',
+            cursor: 'pointer',
+            padding: '0',
         });
 
-        return button;
-    };
+        const img = document.createElement('img');
+        Object.assign(img, {
+            src,
+            alt,
+        });
 
-    // Create social media buttons
-    const instagramButton = createSocialButton('IGlogo.png', 'Instagram', 'https://www.instagram.com/yazzysimons');
-    const facebookButton = createSocialButton('facebookLogo.png', 'Facebook', 'https://www.facebook.com/yasmin.simons.58/');
-    const spotifyButton = createSocialButton('spotifylogo.png', 'Spotify', 'https://open.spotify.com/artist/7gnxVCyVrZrWA6AIQxf3Kq?si=7GZJAKluTB6sCy4mEQqqWg');
-    const linkedinButton = createSocialButton('linkedinlogo.png', 'LinkedIn', 'https://www.linkedin.com/in/yazzysimons/');
+        // Base logo styling
+        Object.assign(img.style, {
+            width: '80px',
+            height: '80px',
+            objectFit: 'contain',
+            display: 'block',
+            borderRadius: '10px',
+            padding: '8px',
+            boxSizing: 'border-box',
+        });
 
-    // Create a container for social media buttons
-    const socialContainer = document.createElement('div');
-    socialContainer.style.display = 'flex';
-    socialContainer.style.flexWrap = 'wrap'; // Allow wrapping for responsiveness
-    socialContainer.style.gap = '10px'; // Adjusted for responsiveness
-    socialContainer.style.marginTop = '20px';
-    socialContainer.style.justifyContent = 'center';
+        // Apply a scale boost to the Spotify logo
+        if (alt.toLowerCase() === 'spotify') {
+            img.style.transform = 'scale(1.787)';
+        }
+        if (alt.toLowerCase() === 'linkedin') {
+            img.style.transform = 'scale(1.58)';
+        }
+        if (alt.toLowerCase() === 'instagram') {
+            img.style.transform = 'scale(1.18';
+        }
+        if (alt.toLowerCase() === 'facebook') {
+            img.style.transform = 'scale(1.36)';
+        }
 
-    // Append buttons to social container
-    socialContainer.appendChild(instagramButton);
-    socialContainer.appendChild(facebookButton);
-    socialContainer.appendChild(spotifyButton);
-    socialContainer.appendChild(linkedinButton);
 
-    // Append social container to main container
+        button.addEventListener('click', () => window.open(url, '_blank'));
+        button.appendChild(img);
+        socialContainer.appendChild(button);
+    });
+
     container.appendChild(socialContainer);
-
-    // Append container to body
     document.body.appendChild(container);
 });
