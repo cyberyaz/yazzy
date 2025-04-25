@@ -66,5 +66,9 @@ export function injectResponsiveStyles() {
             }
         }
     `;
+    
     document.head.appendChild(style);
+
+    
+    
 }
