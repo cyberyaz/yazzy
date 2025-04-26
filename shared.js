@@ -41,6 +41,17 @@ export function applyGlobalStyles() {
         letterSpacing: '0.07em',
         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
       });
+  
+      // HOVER PREFETCHING:
+      link.addEventListener('mouseenter', () => {
+        if (!document.querySelector(`link[rel="prefetch"][href="${href}"]`)) {
+          const prefetchLink = document.createElement('link');
+          prefetchLink.rel = 'prerender';
+          prefetchLink.href = href;
+          document.head.appendChild(prefetchLink);
+        }
+      });
+  
       menu.appendChild(link);
     });
   

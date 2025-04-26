@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // SOCIAL ICONS
   const socials = [
-    { src: 'IGlogo.png', alt: 'Instagram', url: 'https://www.instagram.com/yazzysimons', scale: 1 },
-    { src: 'facebookLogo.png', alt: 'Facebook', url: 'https://www.facebook.com/yasmin.simons.58/', scale: 1.1},
-    { src: 'spotifyLogo.png', alt: 'Spotify', url: 'https://open.spotify.com/artist/7gnxVCyVrZrWA6AIQxf3Kq?si=7GZJAKluTB6sCy4mEQqqWg', scale: 1.4 },
-    { src: 'linkedinLogo.png', alt: 'LinkedIn', url: 'https://www.linkedin.com/in/yazzysimons/', scale: 1.2 },
+    { src: 'IGlogo.png', alt: 'Instagram', url: 'https://www.instagram.com/yazzysimons', scale: 1.5 },
+    { src: 'facebookLogo.png', alt: 'Facebook', url: 'https://www.facebook.com/yasmin.simons.58/', scale: 1.77},
+    { src: 'spotifyLogo.png', alt: 'Spotify', url: 'https://open.spotify.com/artist/7gnxVCyVrZrWA6AIQxf3Kq?si=7GZJAKluTB6sCy4mEQqqWg', scale: 2.18 },
+    { src: 'linkedinLogo.png', alt: 'LinkedIn', url: 'https://www.linkedin.com/in/yazzysimons/', scale: 1.8 },
   ];
 
   const socialContainer = document.createElement('div');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gap: '12px',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: '30px',
+    marginTop: '50px',
     overflowX: 'auto',
     padding: '10px',
   });
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
     boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
     width: '90%',
     maxWidth: '400px',
-    marginTop: '30px',
+    marginTop: '0px',
   });
 
   const emailInput = document.createElement('input');
