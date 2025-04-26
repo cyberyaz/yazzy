@@ -26,7 +26,7 @@ export function applyGlobalStyles() {
       { text: 'Home', href: 'index.html' },
       { text: 'Music', href: 'music.html' },
       { text: 'Shows', href: 'calendar.html' },
-      { text: 'Contact', href: 'contact.html' },
+      { text: 'Connect', href: 'contact.html' },
     ];
   
     menuItems.forEach(({ text, href }) => {
