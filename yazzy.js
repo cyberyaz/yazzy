@@ -42,7 +42,7 @@ import {
     container.appendChild(title);
   
     const bio = document.createElement('p');
-    bio.textContent = `Yazzy Simons is a vocalist and lyricist from the San Francisco Bay Area, now based in Denver. They focus on Brazilian jazz, drawing inspiration from bossa nova, samba, and MPB. Yazzy is currently studying vocal jazz at the University of Denver under the guidance of Marion Powers, and performs around town with their Brazilian jazz duo, alongside guitarist Kylan Fermin.`;
+    bio.textContent = `Yazzy Simons is a vocalist and composer from the San Francisco Bay Area, now based in Denver. They specialize in Bossa Nova, Swing and modern R&B. Yazzy is currently perusing vocal jazz studies at the University of Denver under the guidance of Marion Powers, and performs around Denver with their Brazilian jazz duo, alongside guitarist Kylan Fermin. The pair share a love for the music of Jobim, João Gilberto, and Elis Regina, and bring their own take to both familiar songs and lesser-known gems, focusing on exploring texture and form. The duo is currently recording their debut release, set to be available later this year.`;
     Object.assign(bio.style, {
       fontSize: '1.5rem',
       fontWeight: '300',

@@ -59,10 +59,11 @@ import {
     const shows = [
       { title: 'Yazzy Duo', date: 'May 6, 2025', time: '7:00 PM', location: 'Salita Cocktail Bar' },
       { title: 'Yazzy Duo', date: 'May 10, 2025', time: '11:00 AM', location: 'TBA' },
-      { title: 'Lamont Jazz Small Group', date: 'May 14, 2025', time: '5:00 PM', location: 'Lamont School of Music, William Recital Salon' },
-      { title: 'Lamont Jazz Vocal Groups', date: 'May 27, 2025', time: '6:30 PM', location: 'Lamont School of Music, William Recital Salon' },
+      { title: 'Lamont Jazz Small Group', date: 'May 14, 2025', time: '5:00 PM', location: 'Lamont School of Music, Williams Recital Salon' },
+      { title: 'Lamont Jazz Vocal Groups', date: 'May 27, 2025', time: '6:30 PM', location: 'Lamont School of Music, Williams Recital Salon' },
       { title: 'Yazzy Duo', date: 'May 30, 2025', time: '7:00 PM', location: 'TBA' },
-      { title: 'Yazzy Duo', date: 'May 31, 2025', time: '6:00 PM', location: 'Little Brazil Restaurant' },
+      { title: 'Yazzy Duo', date: 'May 31, 2025', time: '6:00 PM', location: 'Little Brazil Restaurant'},
+      { title: 'Yazzy Duo', date: 'June 17, 2025', time:'6:00 PM', location: 'Rosetta Hall - Boulder'},
     ];
   
     shows.forEach(({ title, date, time, location }) => {
