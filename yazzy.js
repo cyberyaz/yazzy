@@ -41,18 +41,35 @@ import {
     });
     container.appendChild(title);
   
-    const bio = document.createElement('p');
-    bio.textContent = `Yazzy Simons is a vocalist and composer from the San Francisco Bay Area, now based in Denver. They specialize in Bossa Nova, Swing and modern R&B. Yazzy is currently perusing vocal jazz studies at the University of Denver under the guidance of Marion Powers, and performs around Denver with their Brazilian jazz duo, alongside guitarist Kylan Fermin. The pair share a love for the music of Jobim, João Gilberto, and Elis Regina, and bring their own take to both familiar songs and lesser-known gems, focusing on exploring texture and form. The duo is currently recording their debut release, set to be available later this year.`;
-    Object.assign(bio.style, {
+    const bio1 = document.createElement('p');
+    bio1.textContent = `Yazzy Simons is a vocalist and composer from the San Francisco Bay Area, now based in Denver. They specialize in Bossa Nova, Swing and modern R&B. Yazzy is currently perusing vocal jazz studies at the University of Denver under the guidance of Marion Powers, and performs around Denver with their Brazilian jazz duo, alongside guitarist Kylan Fermin.`;
+    Object.assign(bio1.style, {
       fontSize: '1.5rem',
       fontWeight: '300',
       color: 'white',
       maxWidth: '700px',
       marginTop: '30px',
       padding: '0 20px',
-      textShadow: '1px 1px 8px rgba(0, 0, 0, 0.5)',
+      textShadow: '4px 4px 10px rgba(0, 0, 0, 0.8)',
+      lineHeight: '1.8',
     });
-    container.appendChild(bio);
+    
+    const bio2 = document.createElement('p');
+    bio2.textContent = `The pair share a love for the music of Jobim, João Gilberto, and Elis Regina, and bring their own take to both familiar songs and lesser-known gems, focusing on exploring texture and form. The duo is currently recording their debut release, set to be available later this year.`;
+    Object.assign(bio2.style, {
+      fontSize: '1.5rem',
+      fontWeight: '300',
+      color: 'white',
+      maxWidth: '700px',
+      marginTop: '-25px', // Slightly less margin for second paragraph
+      padding: '0 20px',
+      textShadow: '4px 4px 10px rgba(0, 0, 0, 0.8)',
+      lineHeight: '1.8',
+    });
+    
+    container.appendChild(bio1);
+    container.appendChild(bio2);
+    
   
     document.body.appendChild(container);
   });

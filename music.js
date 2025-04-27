@@ -72,7 +72,9 @@ import {
       return iframe;
     };
   
-    embedWrapper.appendChild(createYouTubeEmbed('https://www.youtube.com/embed/TKN8Zz_HsNo?si=gn4p2FKiMHB496je', '9 / 16'));
+    const smallEmbed = createYouTubeEmbed('https://www.youtube.com/embed/TKN8Zz_HsNo?si=gn4p2FKiMHB496je', '9 / 16');
+    smallEmbed.style.width = '35%'; // Scale down the width to 70% of the parent container
+    embedWrapper.appendChild(smallEmbed);
     embedWrapper.appendChild(createYouTubeEmbed('https://www.youtube.com/embed/w0V8KK_Finw?si=826FKh3aHdBqQX8R'));
     embedWrapper.appendChild(createYouTubeEmbed('https://www.youtube.com/embed/gIZahSo4Vik?si=WRiOpCpBBzxQ4m9h'));
   

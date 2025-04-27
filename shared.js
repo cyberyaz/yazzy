@@ -5,7 +5,7 @@ export function applyGlobalStyles() {
     document.documentElement.style.padding = '0';
     document.body.style.overflow = 'auto';
     document.documentElement.style.overflow = 'auto';
-    document.body.style.fontFamily = 'sans-serif';
+    document.body.style.fontFamily = '"Poppins", sans-serif';
   }
   
   export function createMenu() {
@@ -23,13 +23,13 @@ export function applyGlobalStyles() {
     });
   
     const menuItems = [
-      { text: 'Home', href: 'index.html' },
-      { text: 'Music', href: 'music.html' },
-      { text: 'Shows', href: 'calendar.html' },
-      { text: 'Connect', href: 'contact.html' },
+      { text: 'Home', href: 'index.html', script: 'yazzy.js' },
+      { text: 'Music', href: 'music.html', script: 'music.js' },
+      { text: 'Shows', href: 'calendar.html', script: 'calendar.js' },
+      { text: 'Connect', href: 'contact.html', script: 'contact.js' },
     ];
   
-    menuItems.forEach(({ text, href }) => {
+    menuItems.forEach(({ text, href, script }) => {
       const link = document.createElement('a');
       link.href = href;
       link.innerText = text;
@@ -40,15 +40,24 @@ export function applyGlobalStyles() {
         fontWeight: '300',
         letterSpacing: '0.07em',
         textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+        flexShrink: '0', // <<< ADD THIS
       });
   
-      // HOVER PREFETCHING:
+      // Prefetch HTML and JS on hover
       link.addEventListener('mouseenter', () => {
-        if (!document.querySelector(`link[rel="prefetch"][href="${href}"]`)) {
-          const prefetchLink = document.createElement('link');
-          prefetchLink.rel = 'prerender';
-          prefetchLink.href = href;
-          document.head.appendChild(prefetchLink);
+        if (!document.querySelector(`link[rel="prerender"][href="${href}"]`)) {
+          const prefetchPage = document.createElement('link');
+          prefetchPage.rel = 'prerender';
+          prefetchPage.href = href;
+          document.head.appendChild(prefetchPage);
+        }
+  
+        if (script && !document.querySelector(`link[rel="prefetch"][href="${script}"]`)) {
+          const prefetchScript = document.createElement('link');
+          prefetchScript.rel = 'prefetch';
+          prefetchScript.href = script;
+          prefetchScript.as = 'script';
+          document.head.appendChild(prefetchScript);
         }
       });
   
@@ -57,6 +66,7 @@ export function applyGlobalStyles() {
   
     return menu;
   }
+  
   
   export function injectResponsiveStyles() {
     const style = document.createElement('style');
