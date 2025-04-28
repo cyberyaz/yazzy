@@ -16,7 +16,7 @@ export function applyGlobalStyles() {
       left: '50%',
       transform: 'translateX(-50%)',
       display: 'flex',
-      gap: '20px',
+      gap: '15px',
       flexWrap: 'wrap',
       justifyContent: 'center',
       zIndex: '10',
