@@ -12,7 +12,7 @@ export function applyGlobalStyles() {
     const menu = document.createElement('div');
     Object.assign(menu.style, {
       position: 'absolute',
-      top: '20px',
+      top: '40px',
       left: '50%',
       transform: 'translateX(-50%)',
       display: 'flex',

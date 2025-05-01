@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    backgroundImage: 'url("calbackground.jpg")',
+    backgroundImage: 'url("calbackground.png")',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
@@ -57,21 +57,24 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   const shows = [
-    { title: 'Yazzy Duo', date: 'May 6, 2025', time: '7:00 PM', location: 'Salita Cocktail Bar' },
-    { title: 'Yazzy Duo', date: 'May 10, 2025', time: '11:00 AM' },
-    { title: 'Yazzy Duo', date: 'May 11, 2025', time: '11:00 AM' },
+    { title: 'Yazzy Duo', date: 'May 6, 2025', time: '6:00 PM', location: 'Salita Cocktail Bar' },
+    { title: 'Yazzy Duo', date: 'May 11, 2025', time: '11:00 AM', location: 'Horsetooth Tavern - Fort Collins' }, 
     { title: 'Lamont Jazz Small Group', date: 'May 14, 2025', time: '5:00 PM', location: 'Lamont School of Music, Williams Recital Salon' },
     { title: 'Lamont Jazz Vocal Groups', date: 'May 27, 2025', time: '6:30 PM', location: 'Lamont School of Music, Williams Recital Salon' },
-    { title: 'Yazzy Duo', date: 'May 30, 2025', time: '7:00 PM' },
+    { title: 'Yazzy Duo', date: 'May 30, 2025', time: '7:00 PM', location: 'Cheluna Brewing Company' },
     { title: 'Yazzy Duo', date: 'May 31, 2025', time: '6:00 PM', location: 'Little Brazil Restaurant' },
+    { title: 'Yazzy Duo', date: 'May 31, 2025', time: '11:30 PM', location: 'Dazzle Denver' },
+    { title: 'Yazzy Duo', date: 'June 3, 2025', time: '6:00 PM', location: 'Salita Cocktail Bar' },
     { title: 'Yazzy Duo', date: 'June 17, 2025', time: '6:00 PM', location: 'Rosetta Hall - Boulder' },
+    { title: 'Yazzy Duo', date: 'July 1, 2025', time: '6:00 PM', location: 'Salita Cocktail Bar' },
+    { title: 'Yazzy Duo', date: 'August 5, 2025', time: '6:00 PM', location: 'Salita Cocktail Bar' },
   ];
 
   shows.forEach(({ title, date, time, location }) => {
     const item = document.createElement('li');
     const venue = location || 'TBA';
     item.textContent = `${title} | ${date}, ${time} at ${venue}`;
-    item.style.marginBottom = '16px';
+    item.style.marginBottom = '40px';
     
     // Make the item slightly transparent if location is missing
     if (!location) {
