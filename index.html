@@ -4,7 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yazzy</title>
-  <script type="module" src="yazzy.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="index.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 </head>
-<body></body>
+<body>
+  <header>
+    <a href="#home">Home</a>
+    <a href="#music">Music</a>
+    <a href="#shows">Shows</a>
+    <a href="#contact">Contact</a>
+  </header>
+
+  <main>
+    <section id="home">
+      <h1>Yazzy</h1>
+      <div class="bio-wrapper">
+        <p>Yazzy Simons is a vocalist and composer from the San Francisco Bay Area, now based in Denver. They specialize in Bossa Nova, Swing, and modern R&B. Yazzy is currently pursuing vocal jazz studies at the University of Denver under the guidance of Marion Powers, and performs around Denver with their jazz duo, alongside guitarist Kylan Fermin.</p>
+        <p>The pair share a love for the music of Jobim, João Gilberto, and Elis Regina, and bring their own take to both familiar songs and lesser-known gems, focusing on exploring texture and form. Yazzy also writes original music, drawing inspiration from love, nature, and community. The duo is currently recording their debut release, set to be available later this year.</p>
+      </div>
+    </section>
+
+    <section id="music">
+      <div class="video-wrapper" id="videoWrapper"></div>
+      <div class="spotify-embeds">
+        <iframe style="border-radius:19px"
+          src="https://open.spotify.com/embed/track/6Ma6EVrctnFLHFUhyfYSLj?utm_source=generator"
+          loading="lazy"></iframe>
+        <iframe style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/4jrcwOHr4UdIEpawTpCJRB?utm_source=generator"
+          loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section id="shows">
+      <h2>Upcoming Shows</h2>
+      <ul>
+        <li>Yazzy Duo — May 11, 2025, 11:00 AM at <a href="https://www.horsetoothtavern.com/" target="_blank">Horsetooth Tavern - Fort Collins</a></li>
+        <li>Yazzy Duo — May 13, 2025, 6:00 PM at <a href="https://www.bonannoconcepts.com/events/" target="_blank">Salita Cocktail Bar</a></li>
+        <li>Lamont Jazz Small Group — May 14, 2025, 5:00 PM at <a href="https://liberalarts.du.edu/lamont/news-events/calendar/santiago-small-group-judith-hindle" target="_blank">Lamont School of Music, Williams Recital Salon</a></li>
+        <li>Lamont Jazz Vocal Groups — May 27, 2025, 6:30 PM at <a href="https://liberalarts.du.edu/lamont/news-events/calendar/vocal-jazz-ensembles-1" target="_blank">Lamont School of Music, Williams Recital Salon</a></li>
+        <li>Yazzy Duo — May 30, 2025, 7:00 PM at <a href="https://www.cheluna.com/events/" target="_blank">Cheluna Brewing</a></li>
+        <li>Yazzy Duo — May 31, 2025, 7:00 PM at <a href="https://www.littlebrazilco.com/events" target="_blank">Little Brazil</a></li>
+        <li>Yazzy Duo — May 31, 2025, 11:30 PM at <a href="https://www.dazzledenver.com/live-music/#/events" target="_blank">Dazzle</a></li>
+        <li>Yazzy Duo — June 3, 2025, 6:00 PM at <a href="https://www.bonannoconcepts.com/events/" target="_blank">Salita</a></li>
+        <li>Yazzy Duo — June 17, 2025, 6:00 PM at <a href="https://rosettahall.com/faq-2-2-2-2-2/" target="_blank">Rosetta Hall - Boulder</a></li>
+        <li>Yazzy Duo — July 1, 2025, 6:00 PM at <a href="https://www.bonannoconcepts.com/events/" target="_blank">Salita</a></li>
+        <li>Yazzy Duo — August 5, 2025, 6:00 PM at <a href="https://www.bonannoconcepts.com/events/" target="_blank">Salita</a></li>
+      </ul>      
+    </section>
+
+    <section id="contact">
+      <div class="social-icons" id="socialLinks"></div>
+      <form id="contactForm">
+        <input name="email" type="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit">Send</button>
+        <div id="formStatus"></div>
+      </form>
+    </section>
+  </main>
+</body>
 </html>

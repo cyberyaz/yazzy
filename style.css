@@ -1,0 +1,223 @@
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Verdana', Geneva, sans-serif;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+
+section {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+h1 {
+  letter-spacing: 0.2em;
+  font-size: 7.5rem;
+  font-weight: 300;
+  text-align: center;
+  margin-top: -15px;
+}
+a{
+    color: white;
+}
+p {
+  font-size: 1.65rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 20px auto;
+  text-align: left;
+  color: #f2f2f2;
+  position: relative;
+  left: 650px;
+}
+
+
+.video-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .video-wrapper iframe {
+    width: 100%;
+    max-width: 960px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 130px;
+    margin-top: -100px;
+  }
+  
+  .spotify-embeds iframe {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    height: 180px;
+    border: none;
+    scale: 1.2;
+    margin-top: -70px;
+    margin-bottom: 100px;
+  }
+
+  
+  h2{
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    margin-top: -90px;
+  }
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+ul li {
+  margin-bottom: 40px;
+}
+
+
+  
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #C19A6B;
+  color: rgb(255, 255, 255);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#formStatus {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.social-icons button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  :root {
+    --icon-size: 70px;
+  }
+  
+  .social-icons img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    object-fit: contain;
+  }
+  
+#home {
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  #music {
+    background-image: url('musicbackground.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 5vh;
+    max-height: 2200px;
+  }
+  
+  #shows {
+    background-image: url('wood.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh; /* or try 60vh, 800px, etc. */
+    max-height: 970px;
+  }
+  
+  #contact {
+    background-image: url('wall.JPG');
+    background-size: cover;
+    background-position: center;
+    min-height: 60vh; /* instead of 100vh */
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  :root {
+    --icon-size: 70px;
+  }
+  
+  .social-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    object-fit: contain;
+    margin-top: -100px;
+  }
+  
+  /* Optional: per-icon overrides */
+  .custom-instagram {
+    --icon-size: 150px;
+  }
+  
+  .custom-facebook {
+    --icon-size: 170px;
+  }
+  
+  .custom-spotify {
+    --icon-size: 200px;
+  }
+  
+  .custom-linkedin {
+    --icon-size: 180px;
+  }
+  
+  
