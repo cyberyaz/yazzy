@@ -57,22 +57,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const setupScrollHeader = () => {
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+      header.style.transform = currentScroll > lastScrollTop ? 'translateY(-100%)' : 'translateY(0)';
+      lastScrollTop = Math.max(currentScroll, 0);
+    });
+  };
+
   const moveBioToMobileSection = () => {
+    const homeSection = document.getElementById('home');
+    const mobileSection = document.getElementById('bio');
     const bioWrapper = document.querySelector('.bio-wrapper');
-    const home = document.getElementById('home');
-    const bio = document.getElementById('bio');
+
     const isMobile = window.innerWidth <= 768;
 
-    if (isMobile && home.contains(bioWrapper)) {
-      bio.appendChild(bioWrapper);
-    } else if (!isMobile && bio.contains(bioWrapper)) {
-      home.appendChild(bioWrapper);
+    if (isMobile && bioWrapper && homeSection.contains(bioWrapper)) {
+      mobileSection.appendChild(bioWrapper);
+    } else if (!isMobile && bioWrapper && mobileSection.contains(bioWrapper)) {
+      homeSection.appendChild(bioWrapper);
     }
   };
 
   renderVideos();
   renderSocialLinks();
   setupFormHandler();
+  setupScrollHeader();
   moveBioToMobileSection();
   window.addEventListener('resize', moveBioToMobileSection);
 });
