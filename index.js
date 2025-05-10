@@ -58,17 +58,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const moveBioToMobileSection = () => {
-    const isMobile = window.innerWidth <= 768;
-    const homeSection = document.getElementById('home');
-    const mobileSection = document.getElementById('bio');
     const bioWrapper = document.querySelector('.bio-wrapper');
+    const home = document.getElementById('home');
+    const bio = document.getElementById('bio');
+    const isMobile = window.innerWidth <= 768;
 
-    if (!bioWrapper || !homeSection || !mobileSection) return;
-
-    if (isMobile && homeSection.contains(bioWrapper)) {
-      mobileSection.appendChild(bioWrapper);
-    } else if (!isMobile && mobileSection.contains(bioWrapper)) {
-      homeSection.appendChild(bioWrapper);
+    if (isMobile && home.contains(bioWrapper)) {
+      bio.appendChild(bioWrapper);
+    } else if (!isMobile && bio.contains(bioWrapper)) {
+      home.appendChild(bioWrapper);
     }
   };
 
