@@ -57,26 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const setupScrollHeader = () => {
-    let lastScrollTop = 0;
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      header.style.transform = currentScroll > lastScrollTop ? 'translateY(-100%)' : 'translateY(0)';
-      lastScrollTop = Math.max(currentScroll, 0);
-    });
-  };
-
   const moveBioToMobileSection = () => {
+    const isMobile = window.innerWidth <= 768;
     const homeSection = document.getElementById('home');
     const mobileSection = document.getElementById('bio');
     const bioWrapper = document.querySelector('.bio-wrapper');
 
-    const isMobile = window.innerWidth <= 768;
+    if (!bioWrapper || !homeSection || !mobileSection) return;
 
-    if (isMobile && bioWrapper && homeSection.contains(bioWrapper)) {
+    if (isMobile && homeSection.contains(bioWrapper)) {
       mobileSection.appendChild(bioWrapper);
-    } else if (!isMobile && bioWrapper && mobileSection.contains(bioWrapper)) {
+    } else if (!isMobile && mobileSection.contains(bioWrapper)) {
       homeSection.appendChild(bioWrapper);
     }
   };
@@ -84,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderVideos();
   renderSocialLinks();
   setupFormHandler();
-  setupScrollHeader();
   moveBioToMobileSection();
   window.addEventListener('resize', moveBioToMobileSection);
 });
