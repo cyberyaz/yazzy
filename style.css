@@ -1,250 +1,319 @@
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  font-family: 'Verdana', Geneva, sans-serif;
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 20px;
-  z-index: 1000;
-  transition: transform 0.3s ease;
-}
-
-header a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-
-section {
-  min-height: 100vh;
-  padding: 120px 20px 60px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-h1 {
-  letter-spacing: 0.2em;
-  font-size: 7.5rem;
-  font-weight: 300;
-  text-align: center;
-  margin-top: -15px;
-}
-
-a {
-  color: white;
-}
-
-p {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  text-align: left;
-  color: #f2f2f2;
-  max-width: calc(100vw - 1000px);
-  position: relative;
-  left: 75%;
-  transform: translateX(5%);
-  word-wrap: break-word;
-}
-
-.video-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-}
-
-.video-wrapper iframe {
-  width: 100%;
-  max-width: 960px;
-  aspect-ratio: 16 / 9;
-  margin-bottom: 130px;
-  margin-top: -100px;
-  border: none; /* Removes the border around the video embeds */
-}
-
-.spotify-embeds iframe {
-  border-radius: 12px;
-  width: 100%;
-  max-width: 900px;
-  height: 180px;
-  border: none;
-  scale: 1.2;
-  margin-top: -70px;
-  margin-bottom: 100px;
-}
-
-h2 {
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-  font-size: 2rem;
-  margin-top: -90px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-  font-size: 1.2rem;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-}
-
-ul li {
-  margin-bottom: 40px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  margin: 20px auto;
-}
-
-form input,
-form textarea {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 10px;
-  font-size: 1rem;
-}
-
-form button {
-  padding: 10px 20px;
-  background-color: #C19A6B;
-  color: rgb(255, 255, 255);
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-#formStatus {
-  margin-top: 10px;
-  font-size: 1rem;
-}
-
-.social-icons {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.social-icons button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+html {
+  scroll-behavior: smooth;
 }
 
 :root {
   --icon-size: 70px;
 }
 
-.social-icons img {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  object-fit: contain;
-}
-
-#home {
-  background-image: url('background.png');
-  background-size: cover;
-  background-position: center;
-}
-
-#music {
-  background-image: url('musicbackground.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 5vh;
-  max-height: 1400px;
-  page-break-after: always; /* Ensures the page ends after this section */
-}
-
-#shows {
-  background-image: url('wood.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 40vh;
-  max-height: 850px;
-  page-break-after: always; /* Ensures the page ends after this section */
-}
-
-#contact {
-  background-image: url('wall.jpg');
-  background-size: cover;
-  background-position: center;
-  min-height: 0vh;
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
-.social-icon {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  object-fit: contain;
-  margin-top: -100px;
-}
-
-.custom-instagram { --icon-size: 150px; }
-.custom-facebook  { --icon-size: 170px; }
-.custom-spotify   { --icon-size: 200px; }
-.custom-linkedin  { --icon-size: 180px; }
-
-.mobile-only {
-  display: none;
-}
-
-/* --------- RESPONSIVE STYLES FOR MOBILE --------- */
-@media (max-width: 768px) {
-  #home {
-    background-position: -100px center;
-  }
-   #bio {
-    background-color: rgb(0, 0, 0); /* Example: dark semi-transparent */
+/* --------- DESKTOP STYLES (min-width: 769px) --------- */
+@media (min-width: 769px) {
+  body {
+    margin: 0;
+    font-family: 'Verdana', Geneva, sans-serif;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
   }
 
-  #shows {
-    max-height: 1%;
-  }
-  h1{
-    font-size: 5rem;
-    margin-top: -40px;
-  }
-  a{
-    text-align: center;
-  }
   header {
-    flex-wrap: wrap;
-    left: -4%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 30px;
+    padding: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
   }
+
+  header a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+  section {
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  h1 {
+    letter-spacing: 0.2em;
+    font-size: 7.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-top: -15px;
+  }
+
+  a {
+    color: white;
+  }
+
+  p {
+    width: 500px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #f2f2f2;
+    transform: translateX(90%);
+  }
+
+  .video-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+  }
+
+  .video-wrapper iframe {
+    width: 100%;
+    max-width: 960px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 130px;
+    margin-top: -100px;
+    border: none;
+  }
+
   .spotify-embeds iframe {
-    max-width: 100%;
-    height: 160px;
-    scale: 1;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    height: 180px;
+    border: none;
+    scale: 1.2;
+    margin-top: -70px;
+    margin-bottom: 100px;
+  }
+
+  h2 {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    margin-top: -90px;
+    text-align: center;
   }
 
   ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  ul li {
+    margin-bottom: 40px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  form button {
+    padding: 10px 20px;
+    background-color: #C19A6B;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  #formStatus {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .social-icons button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .social-icons img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    object-fit: contain;
+  }
+
+  #home {
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  #music {
+    background-image: url('musicbackground.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 5vh;
+    max-height: 1400px;
+    page-break-after: always;
+  }
+
+  #shows {
+    background-image: url('wood.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh;
+    max-height: 850px;
+    page-break-after: always;
+  }
+
+  #contact {
+    background-image: url('wall.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 0vh;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .social-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    object-fit: contain;
+    margin-top: -100px;
+  }
+
+  .custom-instagram { --icon-size: 150px; }
+  .custom-facebook  { --icon-size: 170px; }
+  .custom-spotify   { --icon-size: 200px; }
+  .custom-linkedin  { --icon-size: 180px; }
+
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* --------- RESPONSIVE STYLES FOR MOBILE (max-width: 768px) --------- */
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    font-family: 'Verdana', Geneva, sans-serif;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px;
+    z-index: 1000;
+    left: -4%;
+  }
+
+  header a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  section {
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  h1 {
+    letter-spacing: 0.2em;
+    font-size: 5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-top: -40px;
+  }
+
+  a {
+    color: white;
+  }
+
+  p {
+    font-size: 1.0rem;
+    line-height: 1.6;
+    text-align: left;
+    color: #f2f2f2;
+    position: relative;
+  }
+
+  .video-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+  }
+
+  .video-wrapper iframe {
+    width: 100%;
+    max-width: 960px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 130px;
+    margin-top: -100px;
+    border: none;
+  }
+
+  .spotify-embeds iframe {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+    height: 160px;
+    border: none;
+    scale: 0.7;
+    margin-top: -90px;
+    margin-bottom: 50px;
+  }
+
+  h2 {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    margin-top: -90px;
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0 16px;
+    text-align: center;
     font-size: 1.2rem;
     line-height: 1.9;
-    padding: 0 16px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
   }
 
   ul li {
@@ -252,35 +321,101 @@ form button {
     text-align: center;
   }
 
-  header a {
-    font-size: 1.2rem;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
   }
 
-  p {
-    font-size: 1.2rem;
-    position: static;
-    left: 0;
-    transform: translateX(-1%);
+  form input,
+  form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    font-size: 1rem;
   }
-  .video-wrapper {
-    width: 80%;
+
+  form button {
+    padding: 10px 20px;
+    background-color: #C19A6B;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
   }
-  .mobile-only {
-    display: block;
-    min-height: unset;
-    height: auto;
-    padding: 30px 20px;
+
+  #formStatus {
+    margin-top: 10px;
+    font-size: 1rem;
   }
 
   .social-icons {
+    display: flex;
     flex-wrap: nowrap;
     gap: 4px;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .social-icons button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
 
   .social-icons img {
     width: 50px;
     height: 50px;
+    object-fit: contain;
     margin-right: 30px;
+  }
+
+  #home {
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: -100px center;
+  }
+
+  #bio {
+    background-color: rgb(0, 0, 0);
+  }
+
+  #music {
+    background-image: url('musicbackground.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 5vh;
+    max-height: 1400px;
+    page-break-after: always;
+  }
+
+  #shows {
+    background-image: url('wood.jpg');
+    background-size: cover;
+    background-position: center;
+    max-height: 1%;
+    page-break-after: always;
+  }
+
+  #contact {
+    background-image: url('wall.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 0vh;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .social-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    object-fit: contain;
+    margin-top: -100px;
   }
 
   .custom-instagram {
@@ -301,5 +436,12 @@ form button {
   .custom-linkedin {
     height: 72px !important;
     scale: 2.5;
+  }
+
+  .mobile-only {
+    display: block;
+    min-height: unset;
+    height: auto;
+    padding: 30px 20px;
   }
 }
