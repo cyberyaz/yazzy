@@ -57,12 +57,12 @@ html {
   }
 
   p {
-    width: 500px;
+    width: 350px;
     margin: 0 auto;
     font-size: 1.15rem;
     line-height: 1.8;
     color: #f2f2f2;
-    transform: translateX(60%);
+    transform: translateX(110%);
   }
 
   .video-wrapper {
